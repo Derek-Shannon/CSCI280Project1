@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 class Account{
-    private static ArrayList<Integer> idList = new ArrayList<Integer>();
+    private static ArrayList<Integer> idList = new ArrayList<>();
     private String name; //name of the account (checking/savings)
     private int id; //unique id for the account
     private double balance; //the total amount of money
@@ -9,9 +9,10 @@ class Account{
 
     public Account(String name){
         this.name = name;
-
-        this.id = newID();
-        idList.add(this.id);
+        balance = 0;
+        id = newID();
+        idList.add(id);
+        transactions = new ArrayList<>();
     }
 
     public int getID(){
