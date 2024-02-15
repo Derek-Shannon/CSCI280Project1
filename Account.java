@@ -1,10 +1,37 @@
 import java.util.ArrayList;
 
 class Account{
+    private static ArrayList<Integer> idList = new ArrayList<Integer>();
     private String name; //name of the account (checking/savings)
     private int id; //unique id for the account
     private double balance; //the total amount of money
     private ArrayList<Transaction> transactions; //list of every transaction the account has made
+
+    public Account(String name){
+        this.name = name;
+
+        this.id = newID();
+        idList.add(this.id);
+    }
+
+    public int getID(){
+        return id;
+    }
+
+    private int newID(){
+        int newIDNumber = -1;
+        boolean run = true;
+        while(run){
+            newIDNumber = (int)(Math.random() * ((999999-100000) + 1));
+            run = false;
+            for(int eachID : idList){
+                if(eachID == newIDNumber){
+                    run = true;
+                }
+            }
+        }
+        return newIDNumber;
+    }
 
     /*
      * adds money to the account
@@ -22,7 +49,9 @@ class Account{
      * checks to see if the balance is negative
      * @return true if the balance is negative and false if the balkance is positive
      */
-    public boolean isNegative(){}
+    public boolean isNegative(){
+        return true;
+    }
 
     /*
      * transfers money from the account to another account provide
