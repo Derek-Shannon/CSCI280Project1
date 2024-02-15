@@ -19,17 +19,17 @@ public class Customer{
 
     /*
      * Deletes an account with the given ID
-     * @param ID number of the account to delete
+     * @param the account to be deleted
      */
-    public void deleteAccount(int ID){
-
+    public void deleteAccount(Account a1){
+        a1 = null;
     }
 
     /*
      * Deletes an account with the given ID
      * @param ID number of the account to delete
      */
-    public void addAccount(){
-
+    public void addAccount(Account a1){
+        accounts.add(a1);
     }
 }
