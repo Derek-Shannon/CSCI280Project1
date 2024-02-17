@@ -9,6 +9,9 @@ public class Customer{
         this.name = name;
         accounts = new ArrayList<Account>();
     }
+    public String getName(){
+        return name;
+    }
 
     /* 
      * Shows the Customer's accounts in a neat way
