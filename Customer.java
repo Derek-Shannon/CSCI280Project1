@@ -13,11 +13,8 @@ public class Customer{
         return name;
     }
 
-    /* 
-     * Shows the Customer's accounts in a neat way
-    */
-    public void viewAccounts(){
-        
+    public ArrayList<Account> getAccounts(){
+        return accounts;
     }
 
     /*
@@ -28,11 +25,8 @@ public class Customer{
         a1 = null;
     }
 
-    /*
-     * Deletes an account with the given ID
-     * @param ID number of the account to delete
-     */
-    public void addAccount(Account a1){
+    public void addAccount(String name){
+        Account a1 = new Account(name);
         accounts.add(a1);
     }
 }

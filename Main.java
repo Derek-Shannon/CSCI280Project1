@@ -1,4 +1,6 @@
 import java.util.Scanner;
+import java.util.ArrayList;
+
 public class Main {
     public static void main(String [] args){
         derekMainTest(); // delete if you want to test
@@ -16,10 +18,56 @@ public class Main {
 
         Customer person1 = new Customer(name);
         
-        System.out.println("Welcome "+person1.getName()+", what would you like to do?");
+
+        System.out.println("Welcome "+person1.getName()+"!");
+        ArrayList<Account> accounts = person1.getAccounts();
+        for (int i = 0; i< accounts.size(); i++){
+            System.out.println(i+") "+accounts.get(i));
+        }
+        if (accounts.size()==0){
+            System.out.println("(No accounts Found, type 'c' to create an account)");
+        }
+        System.out.println("c) create account");
+        System.out.print("\nWhat would you like to do? ");
+        String selection = reader.nextLine();
+        if(selection.equals("c")){
+            //create an account then go back
+            System.out.print("What is the name of the account? ");
+            person1.addAccount(reader.nextLine());
+        }
+        int selectionInt;
+        try{
+            selectionInt = Integer.parseInt(selection);
+        }
+        catch(NumberFormatException e){
+            System.out.println("incorrect input!");
+            //loop again
+        }
+        Account selectedAccount = new Account("Checking");
+
+
+
+        //actions on account
+        System.out.println(person1.getName()+"'s "+selectedAccount.getName()+" Account Actions");
         System.out.println("1) Withdraw Money");
         System.out.println("2) Deposit Money");
         System.out.println("3) Transfer Money");
         System.out.println("4) go back");
+        System.out.print("\nSelect a number: ");
+
+        selection = reader.nextLine();
+        switch (selection){
+            case "1":
+                //
+                break;
+            case "2":
+                break;
+            case "3":
+                break;
+            case "4":
+                break;
+            default:
+                System.out.println("Incorrect Selection, please try again");
+        }
     }
 }
