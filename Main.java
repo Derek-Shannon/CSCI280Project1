@@ -1,15 +1,18 @@
+// CS-280
+// Derek Shannon & Sydney Nilles
+// Project 1
+// 02/20/2024
+
 import java.util.Scanner;
 import java.util.ArrayList;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class Main {
     public static void main(String [] args){
-        derekMainTest(); // delete if you want to test
+        derekMainTest(); // delete if you want to test something else
     }
     public static void derekMainTest(){
 
-        //this is just a start and NOT complete at ALL
 
         Scanner reader = new Scanner(System.in);
 
@@ -45,7 +48,7 @@ public class Main {
 
                 //check to create new account
                 if(selection.equals("c")){
-                    //create an account then go back
+                    //creates an account then goes back
                     System.out.print("What is the name of the account? ");
                     person1.addAccount(reader.nextLine());
                 }
@@ -90,7 +93,7 @@ public class Main {
 
                 String selection = reader.nextLine();
                 switch (selection){
-                    case "1":
+                    case "1": //withdraw
                         int selectedAmountInt = -1;
                         System.out.print("How much would you like to withdraw? ");
                         String selectedAmount = reader.nextLine();
@@ -102,7 +105,7 @@ public class Main {
                             System.out.println("incorrect input!");
                         }
                         break;
-                    case "2":
+                    case "2": //deposit
                         selectedAmountInt = -1;
                         System.out.print("How much would you like to deposit? ");
                         selectedAmount = reader.nextLine();
@@ -114,11 +117,11 @@ public class Main {
                             System.out.println("incorrect input!");
                         }
                         break;
-                    case "3":
+                    case "3": //transfer
                         break;
-                    case "4":
+                    case "4": //view balances
                         break;
-                    case "5":
+                    case "5": //go back
                         run = false;
                         break;
                     default:
@@ -126,8 +129,5 @@ public class Main {
                 }
             }
         }
-    }
-    public static void getDate(){
-        
     }
 }
