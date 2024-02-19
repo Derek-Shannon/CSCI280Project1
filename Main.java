@@ -84,7 +84,8 @@ public class Main {
                 System.out.println("1) Withdraw Money");
                 System.out.println("2) Deposit Money");
                 System.out.println("3) Transfer Money");
-                System.out.println("4) go back");
+                System.out.println("4) View Statments");
+                System.out.println("5) go back");
                 System.out.print("\nSelect a number: ");
 
                 String selection = reader.nextLine();
@@ -116,6 +117,8 @@ public class Main {
                     case "3":
                         break;
                     case "4":
+                        break;
+                    case "5":
                         run = false;
                         break;
                     default:
