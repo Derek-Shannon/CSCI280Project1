@@ -102,6 +102,16 @@ public class Main {
                         }
                         break;
                     case "2":
+                        selectedAmountInt = -1;
+                        System.out.print("How much would you like to deposit? ");
+                        selectedAmount = reader.nextLine();
+                        try{
+                            selectedAmountInt = Integer.parseInt(selectedAmount);
+                            selectedAccount.deposit(selectedAmountInt, ""+LocalDateTime.now());
+                        }
+                        catch(NumberFormatException e){
+                            System.out.println("incorrect input!");
+                        }
                         break;
                     case "3":
                         break;

@@ -65,6 +65,10 @@ class Account{
      * @param amount to be added to the account
      */
     public void deposit(int amount, String date){
+        if(amount <0){
+            System.out.println("Value can't be negative");
+            return;
+        }
         balance += amount;
         Transaction t1 = new Transaction("Deposit", "Deposit", amount, date); //add to transaction log
         transactions.add(t1);
@@ -95,7 +99,7 @@ class Account{
             int fee = 18;
             //add transaction for fee
             balance -= fee;
-            System.out.println("(fee Added)");
+            System.out.println("(Over Draft fee Added)");
         }
     }
 
