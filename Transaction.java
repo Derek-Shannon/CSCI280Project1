@@ -1,3 +1,8 @@
+// CS-280
+// Derek Shannon & Sydney Nilles
+// Project 1
+// 02/20/2024
+
 // implementation progress: Should be complete
 
 class Transaction{

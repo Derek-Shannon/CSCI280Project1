@@ -1,4 +1,10 @@
+// CS-280
+// Derek Shannon & Sydney Nilles
+// Project 1
+// 02/20/2024
+
 // implementation progress: Complete
+
 import java.util.ArrayList;
 
 public class Customer{
