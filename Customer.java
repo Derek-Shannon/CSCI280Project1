@@ -1,3 +1,4 @@
+// implementation progress: Complete
 import java.util.ArrayList;
 
 public class Customer{
