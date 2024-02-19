@@ -4,6 +4,7 @@
 // 02/20/2024
 
 // implementation progress: Complete
+
 import java.util.ArrayList;
 
 public class Customer{
