@@ -64,22 +64,24 @@ class Account{
      * adds money to the account
      * @param amount to be added to the account
      */
-    public void deposit(int amount){
+    public void deposit(int amount, String date){
         balance += amount;
-        //add transaction log
+        Transaction t1 = new Transaction("Deposit", "Deposit", amount, date); //add to transaction log
+        transactions.add(t1);
     }
 
     /*
      * removes money from the account
      * @param amount to be added to the account
      */
-    public void withdraw(int amount){
+    public void withdraw(int amount, String date){
         if (balance < 0){
             System.out.println("Not enough funds to withdraw");
             return;
         }
         balance -= amount;
-        //add to transaction log
+        Transaction t1 = new Transaction("Withdrawal", "Withdrawal", amount, date); //add to transaction log
+        transactions.add(t1);
         checkFee();
     }
 
@@ -96,7 +98,7 @@ class Account{
      * @param recipient - the account that is recieveing the money
      * @param amount - the quantity of money being transfered to the other account
      */
-    public void tranferTo(Account recipient, int amount){
+    public void tranferTo(Account recipient, int amount, String date){
         if (amount < 0){
             System.out.println("Amount to send can't be negative");
             return;
@@ -108,7 +110,8 @@ class Account{
         balance -= amount;
         checkFee();
         recipient.balance += amount;
-        //add to transaction log
+        Transaction t1 = new Transaction("Transfer", "Transfer to " + recipient, amount, date); //add to transaction log
+        transactions.add(t1);
     }
 
     /*
