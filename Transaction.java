@@ -12,6 +12,22 @@ class Transaction{
         this.date = date;
     }
 
+    public String getType(){
+        return type;
+    }
+
+    public String getMemo(){
+        return memo;
+    }
+
+    public double getAmount(){
+        return amount;
+    }
+
+    public String getDate(){
+        return date;
+    }
+
     // Overwriting the toString
     public String toString(){
         return "" + type + " $" + amount + " " + memo + " on " + date;

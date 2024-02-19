@@ -51,6 +51,7 @@ public class Main {
                 }
                 else if(selection.equals("s")){
                     System.out.println("\nAccount Successfully Signed off! Good bye");
+                    reader.close();
                     System.exit(0);
                 }
                 else{// then check to see if account exists
