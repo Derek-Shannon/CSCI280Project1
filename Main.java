@@ -7,6 +7,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.time.LocalDateTime;
 
+// impleted everything except transfer and viewing statments
 public class Main {
     public static void main(String [] args){
         derekMainTest(); // delete if you want to test something else
@@ -117,11 +118,11 @@ public class Main {
                             System.out.println("incorrect input!");
                         }
                         break;
-                    case "3": //transfer
+                    case "3": //transfer needs to be implemeted
                         break;
-                    case "4": //view balances
+                    case "4": //view balances needs to be implemeted
                         break;
-                    case "5": //go back
+                    case "5": //go back complete
                         run = false;
                         break;
                     default:
