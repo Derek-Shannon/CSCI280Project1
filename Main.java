@@ -89,5 +89,7 @@ public class Main {
             default:
                 System.out.println("Incorrect Selection, please try again");
         }
+
+        reader.close();
     }
 }
