@@ -12,20 +12,23 @@ public class Main {
         Scanner reader = new Scanner(System.in);
 
         System.out.println("----Welcome To Our Bank!----");
-        System.out.print("Please eneter your name: ");
+        System.out.print("Please enter your name: ");
         String name = reader.nextLine();
         System.out.println();
 
         Customer person1 = new Customer(name);
         
         boolean run = true;
+
+        //finds the account user wants to interact with
+        Account selectedAccount = null;
         while(run){
             System.out.println("\n\nWelcome "+person1.getName()+"!");
 
             //print account list
             ArrayList<Account> accounts = person1.getAccounts();
             for (int i = 0; i< accounts.size(); i++){
-                System.out.println(i+") "+accounts.get(i));
+                System.out.println((i+1)+") "+accounts.get(i).getName());
             }
             if (accounts.size()==0){
                 System.out.println("(No accounts Found, type 'c' to create an account)");
@@ -42,20 +45,25 @@ public class Main {
                 person1.addAccount(reader.nextLine());
             }
             else{// then check to see if account exists
-                int selectionInt;
+                int selectionInt = -1;
                 try{
                     selectionInt = Integer.parseInt(selection);
                 }
                 catch(NumberFormatException e){
                     System.out.println("incorrect input!");
-                    run = true;
                 }
                 //check selection in list
+                if (selectionInt != -1){
+                    if(accounts.size()>=selectionInt && 0<selectionInt){
+                        selectedAccount = accounts.get(selectionInt-1);
+                        run = false;
+                    }
+                    else{
+                        System.out.println("Account doesn't exist");
+                    }
+                }
             }
         }
-
-        //temp
-        Account selectedAccount = new Account("Checking");
 
 
 
