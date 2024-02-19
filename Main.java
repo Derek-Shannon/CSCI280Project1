@@ -18,31 +18,43 @@ public class Main {
 
         Customer person1 = new Customer(name);
         
+        boolean run = true;
+        while(run){
+            System.out.println("\n\nWelcome "+person1.getName()+"!");
 
-        System.out.println("Welcome "+person1.getName()+"!");
-        ArrayList<Account> accounts = person1.getAccounts();
-        for (int i = 0; i< accounts.size(); i++){
-            System.out.println(i+") "+accounts.get(i));
+            //print account list
+            ArrayList<Account> accounts = person1.getAccounts();
+            for (int i = 0; i< accounts.size(); i++){
+                System.out.println(i+") "+accounts.get(i));
+            }
+            if (accounts.size()==0){
+                System.out.println("(No accounts Found, type 'c' to create an account)");
+            }
+            System.out.println("c) create account");
+
+            //get user's choice
+            System.out.print("\nWhat would you like to do? ");
+            String selection = reader.nextLine();
+
+            if(selection.equals("c")){ //create new account
+                //create an account then go back
+                System.out.print("What is the name of the account? ");
+                person1.addAccount(reader.nextLine());
+            }
+            else{// then check to see if account exists
+                int selectionInt;
+                try{
+                    selectionInt = Integer.parseInt(selection);
+                }
+                catch(NumberFormatException e){
+                    System.out.println("incorrect input!");
+                    run = true;
+                }
+                //check selection in list
+            }
         }
-        if (accounts.size()==0){
-            System.out.println("(No accounts Found, type 'c' to create an account)");
-        }
-        System.out.println("c) create account");
-        System.out.print("\nWhat would you like to do? ");
-        String selection = reader.nextLine();
-        if(selection.equals("c")){
-            //create an account then go back
-            System.out.print("What is the name of the account? ");
-            person1.addAccount(reader.nextLine());
-        }
-        int selectionInt;
-        try{
-            selectionInt = Integer.parseInt(selection);
-        }
-        catch(NumberFormatException e){
-            System.out.println("incorrect input!");
-            //loop again
-        }
+
+        //temp
         Account selectedAccount = new Account("Checking");
 
 
@@ -55,7 +67,7 @@ public class Main {
         System.out.println("4) go back");
         System.out.print("\nSelect a number: ");
 
-        selection = reader.nextLine();
+        String selection = reader.nextLine();
         switch (selection){
             case "1":
                 //
