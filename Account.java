@@ -133,5 +133,13 @@ class Account{
     /*
      * Prints organized text of all transactions from that account.
      */
-    public void showStatment(){}
+    public void showStatment(){
+        String labels = String.format("%-10s %-50s %-10s %-10s","Type", "Purpose", "Amount", "Date");
+        System.out.println(labels); // titles/labels
+
+        for (Transaction t : transactions){
+            String line = String.format("%-10s %-45s %-10s %-10s", t.getType(), t.getMemo() ,t.getAmount(), t.getDate()); // the formatting of each line
+            System.out.println(line);
+        }
+    }
 }

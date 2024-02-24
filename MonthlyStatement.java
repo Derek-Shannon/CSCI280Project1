@@ -28,11 +28,11 @@ class MonthlyStatement{
      * Printed directly to console
      */
     public void arrangeStatement(){
-        // needs to be properly configured
-        System.out.println("Type Purpose Amount Date"); // titles/labels
+        String labels = String.format("%-10s %-50s %-10s %-10s","Type", "Purpose", "Amount", "Date");
+        System.out.println(labels); // titles/labels
+
         for (Transaction t : monthlyTransactions){
-            // needs to be tested and properly configured
-            String line = String.format("%10s %20s %40s %50s", t.getType(), t.getMemo() ,t.getAmount(), t.getDate()); // the formatting of each line
+            String line = String.format("%-10s %-45s %-10s %-10s", t.getType(), t.getMemo() ,t.getAmount(), t.getDate()); // the formatting of each line
             System.out.println(line);
         }
     }
