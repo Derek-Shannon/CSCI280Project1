@@ -12,7 +12,7 @@ public class Main {
     public static void main(String [] args){
         derekMainTest(); // delete if you want to test something else
     }
-    
+
     public static void derekMainTest(){
 
 
@@ -120,23 +120,24 @@ public class Main {
                         }
                         break;
                     case "3": //transfer needs to be implemented
-                        selectedAmountInt = -1;
-                        System.out.print("Which account would you like to transfer to? ");
-                        ArrayList<Account> accounts = person1.getAccounts();
-                        for (int i = 0; i< accounts.size(); i++){
-                            System.out.println((i+1)+") "+accounts.get(i).getName());
-                        }
-                        System.out.print("How much would you like to transfer? ");
-                        selectedAmount = reader.nextLine();
-                        try{
-                            selectedAmountInt = Integer.parseInt(selectedAmount);
-                            //selectedAccount.transfer(selectedAmountInt, ""+LocalDateTime.now());
-                        }
-                        catch(NumberFormatException e){
-                            System.out.println("incorrect input!");
-                        }
                         break;
-                    case "4": //view balances needs to be implemeted
+                    case "4":
+                        while (true) {
+                            System.out.println("Which would you like to view?\n 1) Monthly Statement\n 2) All transactions");
+                            int select = reader.nextInt();
+                            if (select > 2 && select < 1){
+                                System.out.println("Incorrect input!");
+                            } else if (select == 2){
+                                selectedAccount.showStatment();
+                                break;
+                            } else if (select == 1){
+                                String month = "" + LocalDateTime.now();
+                                month = month.substring(0,8);
+                                MonthlyStatement thisMonth = new MonthlyStatement(month, selectedAccount.getTransactions());
+                                thisMonth.arrangeStatement();
+                                break;
+                            }
+                        }
                         break;
                     case "5": //go back complete
                         run = false;

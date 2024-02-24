@@ -33,6 +33,10 @@ class Account{
         return balance;
     }
 
+    public ArrayList<Transaction> getTransactions(){
+        return transactions;
+    }
+
     public void setName(String name){
         this.name = name;
     }
