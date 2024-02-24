@@ -12,6 +12,7 @@ public class Main {
     public static void main(String [] args){
         derekMainTest(); // delete if you want to test something else
     }
+    
     public static void derekMainTest(){
 
 
@@ -118,7 +119,22 @@ public class Main {
                             System.out.println("incorrect input!");
                         }
                         break;
-                    case "3": //transfer needs to be implemeted
+                    case "3": //transfer needs to be implemented
+                        selectedAmountInt = -1;
+                        System.out.print("Which account would you like to transfer to? ");
+                        ArrayList<Account> accounts = person1.getAccounts();
+                        for (int i = 0; i< accounts.size(); i++){
+                            System.out.println((i+1)+") "+accounts.get(i).getName());
+                        }
+                        System.out.print("How much would you like to transfer? ");
+                        selectedAmount = reader.nextLine();
+                        try{
+                            selectedAmountInt = Integer.parseInt(selectedAmount);
+                            //selectedAccount.transfer(selectedAmountInt, ""+LocalDateTime.now());
+                        }
+                        catch(NumberFormatException e){
+                            System.out.println("incorrect input!");
+                        }
                         break;
                     case "4": //view balances needs to be implemeted
                         break;
