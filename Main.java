@@ -215,6 +215,6 @@ public class Main {
         }
 
         //all infomation gathered, attempts transaction
-        sender.tranferTo(selectedAccount, amount, ""+LocalDateTime.now());
+        sender.tranferTo(selectedAccount, amount, (""+LocalDateTime.now()).substring(0,10));
     }
 }
