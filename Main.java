@@ -101,7 +101,9 @@ public class Main {
                         String selectedAmount = reader.nextLine();
                         try{
                             selectedAmountInt = Integer.parseInt(selectedAmount);
-                            selectedAccount.withdraw(selectedAmountInt, ""+LocalDateTime.now());
+                            System.out.print("What is this transaction for? ");
+                            String memo = reader.nextLine();
+                            selectedAccount.withdraw(selectedAmountInt, (""+LocalDateTime.now()).substring(0,10), memo);
                         }
                         catch(NumberFormatException e){
                             System.out.println("**Incorrect input!**");
@@ -113,7 +115,9 @@ public class Main {
                         selectedAmount = reader.nextLine();
                         try{
                             selectedAmountInt = Integer.parseInt(selectedAmount);
-                            selectedAccount.deposit(selectedAmountInt, ""+LocalDateTime.now());
+                            System.out.print("What is this transaction for? ");
+                            String memo = reader.nextLine();
+                            selectedAccount.deposit(selectedAmountInt, (""+LocalDateTime.now()).substring(0,10), memo);
                         }
                         catch(NumberFormatException e){
                             System.out.println("**Incorrect input!**");
