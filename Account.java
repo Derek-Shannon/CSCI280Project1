@@ -76,7 +76,7 @@ class Account{
      */
     public void deposit(int amount, String date){
         if(amount <0){
-            System.out.println("Value can't be negative");
+            System.out.println("**Value can't be negative**");
             return;
         }
         balance += amount;
@@ -90,11 +90,11 @@ class Account{
      */
     public void withdraw(int amount, String date){
         if (balance < 0){
-            System.out.println("Not enough funds to withdraw");
+            System.out.println("**Not enough funds to withdraw**");
             return;
         }
         if(amount <0){
-            System.out.println("Value can't be negative");
+            System.out.println("**Value can't be negative**");
             return;
         }
         balance -= amount;
@@ -111,6 +111,9 @@ class Account{
             balance -= fee;
             System.out.println("(Over Draft fee Added)");
         }
+        else{
+            System.out.println();
+        }
     }
 
     /*
@@ -120,11 +123,11 @@ class Account{
      */
     public void tranferTo(Account recipient, int amount, String date){
         if (amount < 0){
-            System.out.println("Amount to send can't be negative");
+            System.out.println("**Amount to send can't be negative**");
             return;
         }
         if (amount > balance){
-            System.out.println("Not enough funds to transfer");
+            System.out.println("**Not enough funds to transfer**");
             return;
         }
         balance -= amount;
@@ -132,6 +135,7 @@ class Account{
         recipient.balance += amount;
         Transaction t1 = new Transaction("Transfer", "Transfer to " + recipient, amount, date); //add to transaction log
         transactions.add(t1);
+        System.out.println("Transaction Complete! ");
     }
 
     /*

@@ -5,6 +5,7 @@
 
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.time.LocalDateTime;
 
 // impleted everything except transfer and viewing statments
@@ -65,7 +66,7 @@ public class Main {
                         selectionInt = Integer.parseInt(selection);
                     }
                     catch(NumberFormatException e){
-                        System.out.println("Incorrect input!");
+                        System.out.println("**Incorrect input!**");
                     }
                     //check selection in list
                     if (selectionInt != -1){
@@ -74,7 +75,7 @@ public class Main {
                             run = false;
                         }
                         else{
-                            System.out.println("Account doesn't exist");
+                            System.out.println("**Account doesn't exist**");
                         }
                     }
                 }
@@ -104,7 +105,7 @@ public class Main {
                             selectedAccount.withdraw(selectedAmountInt, ""+LocalDateTime.now());
                         }
                         catch(NumberFormatException e){
-                            System.out.println("incorrect input!");
+                            System.out.println("**Incorrect input!**");
                         }
                         break;
                     case "2": //deposit
@@ -116,17 +117,18 @@ public class Main {
                             selectedAccount.deposit(selectedAmountInt, ""+LocalDateTime.now());
                         }
                         catch(NumberFormatException e){
-                            System.out.println("incorrect input!");
+                            System.out.println("**Incorrect input!**");
                         }
                         break;
                     case "3": //transfer needs to be implemented
+                        transfer(person1, selectedAccount, reader);
                         break;
                     case "4":
                         while (true) {
                             System.out.println("Which would you like to view?\n 1) Monthly Statement\n 2) All transactions");
                             int select = reader.nextInt();
                             if (select > 2 && select < 1){
-                                System.out.println("Incorrect input!");
+                                System.out.println("**Incorrect input!**");
                             } else if (select == 2){
                                 selectedAccount.showStatment();
                                 break;
@@ -143,9 +145,65 @@ public class Main {
                         run = false;
                         break;
                     default:
-                        System.out.println("Incorrect Selection, please try again");
+                        System.out.println("**Incorrect Selection, please try again**");
                 }
             }
         }
+    }
+    public static void transfer(Customer person1, Account sender, Scanner reader){
+        if(person1.getAccounts().size()<2){
+            System.out.println("**You don't have a second account to send to!**");
+            return;
+        }
+
+        //prints accounts
+        ArrayList<Account> accounts = person1.getAccounts();
+        for (int i = 0; i< accounts.size(); i++){
+            System.out.println((i+1)+") "+accounts.get(i).getName());
+        }
+
+        //get user's choice
+        Account selectedAccount = null;
+
+        System.out.print("Which account would you like to send to?");
+        String selection = reader.nextLine().toLowerCase();
+
+        //check for correct input
+        int selectionInt = -1;
+        try{
+            selectionInt = Integer.parseInt(selection);
+        }
+        catch(NumberFormatException e){
+            System.out.println("**Incorrect input!**");
+        }
+
+        //check selection in list
+        if (selectionInt != -1){
+            if(accounts.size()>=selectionInt && 0<selectionInt){
+                selectedAccount = accounts.get(selectionInt-1);
+            }
+            else{
+                System.out.println("**Account doesn't exist**");
+            }
+        }
+        if (selectedAccount.equals(sender)){
+            System.out.println("**Can't send to the same account**");
+            return;
+        }
+
+
+        //gets amount to send from user
+        int amount;
+        System.out.print("How much to do you want to transfer?");
+        try{
+            amount = Integer.parseInt(reader.nextLine());
+        }
+        catch(NumberFormatException e){
+            System.out.println("**Invalid input**");
+            return;
+        }
+
+        //all infomation gathered, attempts transaction
+        sender.tranferTo(selectedAccount, amount, ""+LocalDateTime.now());
     }
 }
