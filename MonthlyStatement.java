@@ -3,8 +3,6 @@
 // Project 1
 // 02/20/2024
 
-// implementation progress: Mostly complete, still needs to be formatted with nice spacing in print statements
-
 import java.util.ArrayList;
 
 class MonthlyStatement{
