@@ -90,7 +90,8 @@ public class Main {
                 System.out.println("2) Deposit Money");
                 System.out.println("3) Transfer Money");
                 System.out.println("4) View Statments");
-                System.out.println("5) go back");
+                System.out.println("6) Go back");
+                System.out.println("d) *Delete Account*");
                 System.out.print("\nSelect a number: ");
 
                 String selection = reader.nextLine();
@@ -153,6 +154,10 @@ public class Main {
                         }
                         break;
                     case "5": //go back complete
+                        run = false;
+                        break;
+                    case "d":
+                        person1.deleteAccount(selectedAccount);
                         run = false;
                         break;
                     default:
