@@ -126,7 +126,15 @@ public class Main {
                     case "4":
                         while (true) {
                             System.out.println("Which would you like to view?\n 1) Monthly Statement\n 2) All transactions");
-                            int select = reader.nextInt();
+                            int select;
+                            try{
+                                select = Integer.parseInt(reader.nextLine());
+                            }
+                            catch(NumberFormatException e){
+                                System.out.println("**Incorrect input!**");
+                                break;
+                            }
+
                             if (select > 2 && select < 1){
                                 System.out.println("**Incorrect input!**");
                             } else if (select == 2){
