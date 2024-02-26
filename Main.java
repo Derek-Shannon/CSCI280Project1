@@ -141,7 +141,7 @@ public class Main {
                             if (select > 2 && select < 1){
                                 System.out.println("**Incorrect input!**");
                             } else if (select == 2){
-                                selectedAccount.showStatment();
+                                selectedAccount.showStatement();
                                 break;
                             } else if (select == 1){
                                 String month = "" + LocalDateTime.now();

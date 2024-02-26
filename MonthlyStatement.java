@@ -32,7 +32,7 @@ class MonthlyStatement{
             System.out.println("**There are no transactions under this account.**");
             return;
         }
-        String labels = String.format("%-10s %-50s %-10s %-10s","Type", "Purpose", "Amount", "Date");
+        String labels = String.format("%-10s %-45s %-10s %-10s","Type", "Purpose", "Amount", "Date");
         System.out.println(labels); // titles/labels
         for (Transaction t : monthlyTransactions){
             String line = String.format("%-10s %-45s %-10s %-10s", t.getType(), t.getMemo() ,t.getAmount(), t.getDate()); // the formatting of each line
