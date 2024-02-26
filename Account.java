@@ -144,7 +144,10 @@ class Account{
     public void showStatment(){
         String labels = String.format("%-10s %-50s %-10s %-10s","Type", "Purpose", "Amount", "Date");
         System.out.println(labels); // titles/labels
-
+        if (transactions.size() < 1){
+            System.out.println("**There are no transactions under this account.**");
+            return;
+        }
         for (Transaction t : transactions){
             String line = String.format("%-10s %-45s %-10s %-10s", t.getType(), t.getMemo() ,t.getAmount(), t.getDate()); // the formatting of each line
             System.out.println(line);

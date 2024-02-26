@@ -5,7 +5,6 @@
 
 import java.util.Scanner;
 import java.util.ArrayList;
-import java.util.InputMismatchException;
 import java.time.LocalDateTime;
 
 // impleted everything except transfer and viewing statments
@@ -173,7 +172,7 @@ public class Main {
         //get user's choice
         Account selectedAccount = null;
 
-        System.out.print("Which account would you like to send to?");
+        System.out.print("Which account would you like to send to? ");
         String selection = reader.nextLine().toLowerCase();
 
         //check for correct input
@@ -202,7 +201,7 @@ public class Main {
 
         //gets amount to send from user
         int amount;
-        System.out.print("How much to do you want to transfer?");
+        System.out.print("How much to do you want to transfer? ");
         try{
             amount = Integer.parseInt(reader.nextLine());
         }
