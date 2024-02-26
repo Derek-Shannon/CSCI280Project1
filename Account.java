@@ -5,6 +5,7 @@
 
 // implementation progress: Complete
 import java.util.ArrayList;
+import java.util.Scanner;
 
 class Account{
     private static ArrayList<Integer> idList = new ArrayList<Integer>();
@@ -74,13 +75,13 @@ class Account{
      * adds money to the account
      * @param amount to be added to the account
      */
-    public void deposit(int amount, String date){
+    public void deposit(int amount, String date, String memo){
         if(amount <0){
             System.out.println("**Value can't be negative**");
             return;
         }
         balance += amount;
-        Transaction t1 = new Transaction("Deposit", "Deposit", amount, date); //add to transaction log
+        Transaction t1 = new Transaction("Deposit", memo, amount, date); //add to transaction log
         transactions.add(t1);
     }
 
@@ -88,7 +89,7 @@ class Account{
      * removes money from the account
      * @param amount to be added to the account
      */
-    public void withdraw(int amount, String date){
+    public void withdraw(int amount, String date, String memo){
         if (balance < 0){
             System.out.println("**Not enough funds to withdraw**");
             return;
@@ -97,14 +98,15 @@ class Account{
             System.out.println("**Value can't be negative**");
             return;
         }
+
         balance -= amount;
-        Transaction t1 = new Transaction("Withdrawal", "Withdrawal", amount, date); //add to transaction log
+        Transaction t1 = new Transaction("Withdrawal", memo, amount, date); //add to transaction log
         transactions.add(t1);
         System.out.print("Transaction Complete! ");
         checkFee();
     }
 
-    public void checkFee(){
+    private void checkFee(){
         if (balance < 0){
             int fee = 18;
             //add transaction for fee
