@@ -11,14 +11,14 @@ class MonthlyStatement{
     private String month; //Contains which month it is in numerical format to match the Transaction class.
     private ArrayList<Transaction> monthlyTransactions; //A list of all the transactions that occurred within a specified month.
 
-    public MonthlyStatement(String month, ArrayList<Transaction> Transactions){
+    public MonthlyStatement(String month, ArrayList<Transaction> transactions){
         this.month = month;
-        this.monthlyTransactions = Transactions;
-
+        monthlyTransactions = new ArrayList<>();
+        
         // double check ArrayList for the correct transactions for that month
-        for (Transaction t : this.monthlyTransactions){
-            if ((t.getDate().contains(this.month))){
-                this.monthlyTransactions.add(t);
+        for (int i = 0; i < transactions.size(); i++){
+            if ((transactions.get(i).getDate().contains(this.month))){
+                monthlyTransactions.add(transactions.get(i));
             }
         }
     }
