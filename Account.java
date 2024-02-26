@@ -7,7 +7,7 @@
 import java.util.ArrayList;
 
 class Account{
-    private static ArrayList<Integer> idList = new ArrayList<Integer>();
+    private static ArrayList<Integer> idList = new ArrayList<Integer>(); //set of all ids for every account created
     private String name; //name of the account (checking/savings)
     private int id; //unique id for the account
     private double balance; //the total amount of money
@@ -40,7 +40,10 @@ class Account{
     public void setName(String name){
         this.name = name;
     }
-
+    /*
+     * sets the account's id if given id doesn't exist
+     * @param the id to change to
+     */
     public void setID(int id){
         if (this.id == id){
             return;
@@ -55,6 +58,10 @@ class Account{
         idList.add(this.id);
     }
 
+    /*
+     * creates a new random ID that hasn't been used yet
+     * @return a new random id
+     */
     private int newID(){
         int newIDNumber = -1;
         boolean run = true;
@@ -72,7 +79,9 @@ class Account{
 
     /*
      * adds money to the account
-     * @param amount to be added to the account
+     * @param amount - to be added to the account
+     * @param date - the date the deposit was attempted
+     * @param memo - the message for what the deposit is for
      */
     public void deposit(double amount, String date, String memo){
         if(amount <0){
@@ -86,7 +95,9 @@ class Account{
 
     /*
      * removes money from the account
-     * @param amount to be added to the account
+     * @param amount - to be added to the account
+     * @param date - the date the withdraw was attempted
+     * @param memo - the message for what the withdraw is for
      */
     public void withdraw(double amount, String date, String memo){
         if (balance < 0){
@@ -105,6 +116,9 @@ class Account{
         checkFee();
     }
 
+    /*
+     * checks to see if a fee needs to be added to the account
+     */
     private void checkFee(){
         if (balance < 0){
             int fee = 18;
@@ -121,6 +135,7 @@ class Account{
      * transfers money from the account to another account provide
      * @param recipient - the account that is recieveing the money
      * @param amount - the quantity of money being transfered to the other account
+     * @param date - the date the transfer was attempted
      */
     public void tranferTo(Account recipient, double amount, String date){
         if (amount < 0){
