@@ -74,7 +74,7 @@ class Account{
      * adds money to the account
      * @param amount to be added to the account
      */
-    public void deposit(int amount, String date, String memo){
+    public void deposit(double amount, String date, String memo){
         if(amount <0){
             System.out.println("**Value can't be negative**");
             return;
@@ -88,7 +88,7 @@ class Account{
      * removes money from the account
      * @param amount to be added to the account
      */
-    public void withdraw(int amount, String date, String memo){
+    public void withdraw(double amount, String date, String memo){
         if (balance < 0){
             System.out.println("**Not enough funds to withdraw**");
             return;
@@ -122,7 +122,7 @@ class Account{
      * @param recipient - the account that is recieveing the money
      * @param amount - the quantity of money being transfered to the other account
      */
-    public void tranferTo(Account recipient, int amount, String date){
+    public void tranferTo(Account recipient, double amount, String date){
         if (amount < 0){
             System.out.println("**Amount to send can't be negative**");
             return;
