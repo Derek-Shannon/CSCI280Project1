@@ -84,39 +84,40 @@ public class Main {
 
                 //actions on account
                 System.out.println("\n"+person1.getName()+"'s "+selectedAccount.getName());
-                System.out.println("Balance: "+selectedAccount.getBalance());
+                System.out.printf("Balance: %.2f\n", selectedAccount.getBalance());
                 System.out.println("1) Withdraw Money");
                 System.out.println("2) Deposit Money");
                 System.out.println("3) Transfer Money");
                 System.out.println("4) View Statments");
-                System.out.println("5) go back");
+                System.out.println("6) Go back");
+                System.out.println("d) *Delete Account*");
                 System.out.print("\nSelect a number: ");
 
                 String selection = reader.nextLine();
                 switch (selection){
                     case "1": //withdraw
-                        int selectedAmountInt = -1;
+                        double selectedAmounDouble = -1;
                         System.out.print("How much would you like to withdraw? ");
                         String selectedAmount = reader.nextLine();
                         try{
-                            selectedAmountInt = Integer.parseInt(selectedAmount);
+                            selectedAmounDouble = Double.parseDouble(selectedAmount);
                             System.out.print("What is this transaction for? ");
                             String memo = reader.nextLine();
-                            selectedAccount.withdraw(selectedAmountInt, (""+LocalDateTime.now()).substring(0,10), memo);
+                            selectedAccount.withdraw(selectedAmounDouble, (""+LocalDateTime.now()).substring(0,10), memo);
                         }
                         catch(NumberFormatException e){
                             System.out.println("**Incorrect input!**");
                         }
                         break;
                     case "2": //deposit
-                        selectedAmountInt = -1;
+                        selectedAmounDouble = -1;
                         System.out.print("How much would you like to deposit? ");
                         selectedAmount = reader.nextLine();
                         try{
-                            selectedAmountInt = Integer.parseInt(selectedAmount);
+                            selectedAmounDouble = Double.parseDouble(selectedAmount);
                             System.out.print("What is this transaction for? ");
                             String memo = reader.nextLine();
-                            selectedAccount.deposit(selectedAmountInt, (""+LocalDateTime.now()).substring(0,10), memo);
+                            selectedAccount.deposit(selectedAmounDouble, (""+LocalDateTime.now()).substring(0,10), memo);
                         }
                         catch(NumberFormatException e){
                             System.out.println("**Incorrect input!**");
@@ -152,6 +153,10 @@ public class Main {
                         }
                         break;
                     case "5": //go back complete
+                        run = false;
+                        break;
+                    case "d":
+                        person1.deleteAccount(selectedAccount);
                         run = false;
                         break;
                     default:
@@ -203,10 +208,10 @@ public class Main {
 
 
         //gets amount to send from user
-        int amount;
+        double amount;
         System.out.print("How much to do you want to transfer? ");
         try{
-            amount = Integer.parseInt(reader.nextLine());
+            amount = Double.parseDouble(reader.nextLine());
         }
         catch(NumberFormatException e){
             System.out.println("**Invalid input**");

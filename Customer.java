@@ -27,7 +27,8 @@ public class Customer{
      * @param the account to be deleted
      */
     public void deleteAccount(Account a1){
-        a1 = null;
+        accounts.remove(a1);
+        System.out.println("Account has been removed!");
     }
 
     public void addAccount(String name){
