@@ -5,7 +5,6 @@
 
 // implementation progress: Complete
 import java.util.ArrayList;
-import java.util.Scanner;
 
 class Account{
     private static ArrayList<Integer> idList = new ArrayList<Integer>();
@@ -143,8 +142,8 @@ class Account{
     /*
      * Prints organized text of all transactions from that account.
      */
-    public void showStatment(){
-        String labels = String.format("%-10s %-50s %-10s %-10s","Type", "Purpose", "Amount", "Date");
+    public void showStatement(){
+        String labels = String.format("%-10s %-45s %-10s %-10s","Type", "Purpose", "Amount", "Date");
         System.out.println(labels); // titles/labels
         if (transactions.size() < 1){
             System.out.println("**There are no transactions under this account.**");
