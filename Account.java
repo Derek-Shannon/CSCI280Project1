@@ -135,8 +135,10 @@ class Account{
         balance -= amount;
         checkFee();
         recipient.balance += amount;
-        Transaction t1 = new Transaction("Transfer", "Transfer to " + recipient.getName(), amount, date); //add to transaction log
-        transactions.add(t1);
+        Transaction senderTransaction = new Transaction("Transfer", "Transfer to " + recipient.getName(), amount, date); //add to transaction log
+        transactions.add(senderTransaction);
+        Transaction recieverTransaction = new Transaction("Transfer", "Recieved from " + getName(), amount, date); //add to transaction log
+        recipient.transactions.add(recieverTransaction);
         System.out.println("Transaction Complete! ");
     }
 
