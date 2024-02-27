@@ -9,11 +9,11 @@ public class Customer{
     private String name; //name of the customer
     private ArrayList<Account> accounts; //list of accounts the user has
 
-
     public Customer(String name){
         this.name = name;
         accounts = new ArrayList<Account>();
     }
+
     public String getName(){
         return name;
     }
@@ -31,6 +31,10 @@ public class Customer{
         System.out.println("Account has been removed!");
     }
 
+    /*
+     * Creates an account for the customer
+     * @param name of the new account
+     */
     public void addAccount(String name){
         Account a1 = new Account(name);
         accounts.add(a1);

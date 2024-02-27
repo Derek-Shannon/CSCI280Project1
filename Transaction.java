@@ -9,7 +9,6 @@ class Transaction{
     private double amount; //the amount of moeny that was processed
     private String date; //the time the transaction was finalized
 
-    // Constructor
     public Transaction(String type, String memo, double amount, String date){
         this.type = type;
         this.memo = memo;

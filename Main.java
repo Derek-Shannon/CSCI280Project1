@@ -14,7 +14,6 @@ public class Main {
 
     public static void derekMainTest(){
 
-
         Scanner reader = new Scanner(System.in);
 
         System.out.println("----Welcome To Our Bank!----");
