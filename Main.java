@@ -7,7 +7,6 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.time.LocalDateTime;
 
-// impleted everything except transfer and viewing statments
 public class Main {
     public static void main(String [] args){
         derekMainTest(); // delete if you want to test something else

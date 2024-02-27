@@ -3,7 +3,6 @@
 // Project 1
 // 02/20/2024
 
-// implementation progress: Complete
 import java.util.ArrayList;
 
 class Account{
