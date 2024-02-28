@@ -1,4 +1,4 @@
-// CS-280
+// CS-280 Sp24
 // Derek Shannon & Sydney Nilles
 // Project 1
 // 02/27/2024
