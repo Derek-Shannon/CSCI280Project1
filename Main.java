@@ -83,7 +83,7 @@ public class Main {
                 System.out.println("2) Deposit Money");
                 System.out.println("3) Transfer Money");
                 System.out.println("4) View Statments");
-                System.out.println("6) Go back");
+                System.out.println("5) Go back");
                 System.out.println("d) *Delete Account*");
                 System.out.print("\nSelect an option: ");
 
